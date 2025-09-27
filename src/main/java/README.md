@@ -1,7 +1,7 @@
 Assignment 1 – Divide and Conquer Algorithms
 Project Structure
 
-Metrics.java – tracks time, comparisons, allocations, and recursion depth.
+src.main.java.Metrics.java – tracks time, comparisons, allocations, and recursion depth.
 
 InsertionSort.java – basic sort for small arrays.
 
@@ -23,7 +23,7 @@ All algorithms use safe recursion patterns.
 
 MergeSort and QuickSort use cut-off for small arrays to reduce recursion depth.
 
-Metrics tracks time, depth, comparisons, and allocations.
+src.main.java.Metrics tracks time, depth, comparisons, and allocations.
 
 ClosestPair uses x/y split and strip scan by neighbors.
 

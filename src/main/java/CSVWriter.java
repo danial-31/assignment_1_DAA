@@ -1,3 +1,5 @@
+import src.main.java.Metrics;
+
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -9,7 +11,7 @@ public class CSVWriter {
         writer.write("algorithm,n,time,comparisons,allocations,depth\n");
     }
 
-    public void write(String algo, int n, Mertics metrics) throws IOException {
+    public void write(String algo, int n, Metrics metrics) throws IOException {
         writer.write(algo + "," + n + "," + metrics.getTime() + "," +
                 metrics.getComparisons() + "," +
                 metrics.getAllocations() + "," +

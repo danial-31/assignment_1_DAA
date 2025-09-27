@@ -1,7 +1,10 @@
+import src.main.java.InsertionSort;
+import src.main.java.Metrics;
+
 public class MergeSort {
     private static final int CUTOFF = 16;
 
-    public static void sort(int[] a, Mertics metrics) {
+    public static void sort(int[] a, Metrics metrics) {
         metrics.reset();
         metrics.start();
         int[] aux = new int[a.length];
@@ -10,7 +13,7 @@ public class MergeSort {
         metrics.end();
     }
 
-    private static void sort(int[] a, int[] aux, int lo, int hi, Mertics metrics) {
+    private static void sort(int[] a, int[] aux, int lo, int hi, Metrics metrics) {
         if (hi - lo <= CUTOFF) {
             InsertionSort.sort(a, lo, hi);
             return;
@@ -23,7 +26,7 @@ public class MergeSort {
         metrics.exitRecursion();
     }
 
-    private static void merge(int[] a, int[] aux, int lo, int mid, int hi, Mertics metrics) {
+    private static void merge(int[] a, int[] aux, int lo, int mid, int hi, Metrics metrics) {
         for (int k = lo; k <= hi; k++) {
             aux[k] = a[k];
             metrics.incAllocations();
@@ -40,4 +43,4 @@ public class MergeSort {
         }
     }
 }
-12
+

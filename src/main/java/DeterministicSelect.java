@@ -1,7 +1,9 @@
+import src.main.java.Metrics;
+
 import java.util.Arrays;
 
 public class DeterministicSelect {
-    public static int select(int[] a, int k, Mertics metrics) {
+    public static int select(int[] a, int k, Metrics metrics) {
         metrics.reset();
         metrics.start();
         int result = select(a, 0, a.length - 1, k, metrics);
@@ -9,7 +11,7 @@ public class DeterministicSelect {
         return result;
     }
 
-    private static int select(int[] a, int lo, int hi, int k, Mertics metrics) {
+    private static int select(int[] a, int lo, int hi, int k, Metrics metrics) {
         if (lo == hi) return a[lo];
 
         int pivot = medianOfMedians(a, lo, hi, metrics);
@@ -20,7 +22,7 @@ public class DeterministicSelect {
         else return select(a, pivotIndex + 1, hi, k, metrics);
     }
 
-    private static int partition(int[] a, int lo, int hi, int pivot, Mertics metrics) {
+    private static int partition(int[] a, int lo, int hi, int pivot, Metrics metrics) {
         int i = lo;
         for (int j = lo; j <= hi; j++) {
             metrics.incComparisons();
@@ -41,7 +43,7 @@ public class DeterministicSelect {
         return pivotIndex;
     }
 
-    private static int medianOfMedians(int[] a, int lo, int hi, Mertics metrics) {
+    private static int medianOfMedians(int[] a, int lo, int hi, Metrics metrics) {
         int n = hi - lo + 1;
         if (n < 5) {
             Arrays.sort(a, lo, hi + 1);

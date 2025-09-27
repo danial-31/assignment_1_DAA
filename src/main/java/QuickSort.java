@@ -1,10 +1,13 @@
+import src.main.java.InsertionSort;
+import src.main.java.Metrics;
+
 import java.util.Random;
 
 public class QuickSort {
     private static final Random rand = new Random();
     private static final int CUTOFF = 16;
 
-    public static void sort(int[] a, Mertics metrics) {
+    public static void sort(int[] a, Metrics metrics) {
         metrics.reset();
         metrics.start();
         shuffle(a);
@@ -12,7 +15,7 @@ public class QuickSort {
         metrics.end();
     }
 
-    private static void sort(int[] a, int lo, int hi, Mertics metrics) {
+    private static void sort(int[] a, int lo, int hi, Metrics metrics) {
         while (lo < hi) {
             if (hi - lo <= CUTOFF) {
                 InsertionSort.sort(a, lo, hi);
@@ -36,7 +39,7 @@ public class QuickSort {
         }
     }
 
-    private static int partition(int[] a, int lo, int hi, int pivot, Mertics metrics) {
+    private static int partition(int[] a, int lo, int hi, int pivot, Metrics metrics) {
         int i = lo;
         for (int j = lo; j < hi; j++) {
             metrics.incComparisons();

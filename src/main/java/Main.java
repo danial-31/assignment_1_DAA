@@ -1,9 +1,11 @@
+import src.main.java.Metrics;
+
 import java.io.IOException;
 import java.util.Random;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        Mertics metrics = new Mertics();
+        Metrics metrics = new Metrics();
         CSVWriter writer = new CSVWriter("results.csv");
         Random rand = new Random();
 

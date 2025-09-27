@@ -1,8 +1,10 @@
+import src.main.java.Metrics;
+
 import java.util.Arrays;
 import java.util.Comparator;
 
 public class ClosestPair {
-    public static double closest(Point[] points, Mertics metrics) {
+    public static double closest(Point[] points, Metrics metrics) {
         metrics.reset();
         metrics.start();
         Point[] sortedX = points.clone();
@@ -14,7 +16,7 @@ public class ClosestPair {
         return result;
     }
 
-    private static double closestRecursive(Point[] px, Point[] py, Mertics metrics) {
+    private static double closestRecursive(Point[] px, Point[] py, Metrics metrics) {
         int n = px.length;
         if (n <= 3) return bruteForce(px, metrics);
 
@@ -47,7 +49,7 @@ public class ClosestPair {
         return Math.min(d, stripClosest(strip, j, d, metrics));
     }
 
-    private static double bruteForce(Point[] pts, Mertics metrics) {
+    private static double bruteForce(Point[] pts, Metrics metrics) {
         double min = Double.POSITIVE_INFINITY;
         for (int i = 0; i < pts.length; i++) {
             for (int j = i + 1; j < pts.length; j++) {
@@ -59,7 +61,7 @@ public class ClosestPair {
         return min;
     }
 
-    private static double stripClosest(Point[] strip, int size, double d, Mertics metrics) {
+    private static double stripClosest(Point[] strip, int size, double d, Metrics metrics) {
         double min = d;
         for (int i = 0; i < size; i++) {
             for (int j = i + 1; j < size && (strip[j].y - strip[i].y) < min; j++) {

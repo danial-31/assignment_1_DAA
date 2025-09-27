@@ -1,5 +1,7 @@
+import src.main.java.Metrics;
+
 public class Select {
-    public static int select(int[] a, int k, Mertics metrics) {
+    public static int select(int[] a, int k, Metrics metrics) {
         metrics.reset();
         metrics.start();
         int res = select(a, 0, a.length - 1, k, metrics);
@@ -7,7 +9,7 @@ public class Select {
         return res;
     }
 
-    private static int select(int[] a, int lo, int hi, int k, Mertics metrics) {
+    private static int select(int[] a, int lo, int hi, int k, Metrics metrics) {
         while (lo <= hi) {
             if (lo == hi) return a[lo];
             int pivot = medianOfMedians(a, lo, hi, metrics);
@@ -23,7 +25,7 @@ public class Select {
         return -1;
     }
 
-    private static int partition(int[] a, int lo, int hi, int pivot, Mertics metrics) {
+    private static int partition(int[] a, int lo, int hi, int pivot, Metrics metrics) {
         int i = lo;
         int j = hi;
         while (i <= j) {
@@ -46,7 +48,7 @@ public class Select {
         return i - 1;
     }
 
-    private static int medianOfMedians(int[] a, int lo, int hi, Mertics metrics) {
+    private static int medianOfMedians(int[] a, int lo, int hi, Metrics metrics) {
         int n = hi - lo + 1;
         if (n < 5) {
             insertionSort(a, lo, hi, metrics);
@@ -63,7 +65,7 @@ public class Select {
         return medianOfMedians(a, lo, lo + numMedians - 1, metrics);
     }
 
-    private static void insertionSort(int[] a, int lo, int hi, Mertics metrics) {
+    private static void insertionSort(int[] a, int lo, int hi, Metrics metrics) {
         for (int i = lo + 1; i <= hi; i++) {
             int key = a[i];
             int j = i - 1;
